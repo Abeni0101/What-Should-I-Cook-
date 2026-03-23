@@ -4,12 +4,12 @@ export function calculateCookScore(recipes) {
     return recipes.map(recipe => {
         let matchScore = 0;
         
-        // Complex search with fillIngredients=true provides these
+        
         if (recipe.usedIngredientCount !== undefined) {
             const total = recipe.usedIngredientCount + recipe.missedIngredientCount;
             matchScore = total > 0 ? (recipe.usedIngredientCount / total) * 100 : 0;
         } else {
-            // Fallback if data is missing
+            
             matchScore = Math.random() * 40 + 60; // Fake score between 60-100 for visual demo
         }
         

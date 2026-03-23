@@ -28,11 +28,11 @@ export function initDragAndDrop(onPotUpdateCallback) {
         
         const ingredientName = e.dataTransfer.getData('text/plain');
         if (ingredientName) {
-            // Visual feedback
+            
             dropZone.innerHTML = `<span>Added: ${ingredientName} 🥘</span>`;
             setTimeout(() => dropZone.innerHTML = `<span>Drop more here! 🍲</span>`, 1500);
             
-            // Trigger callback to main.js
+            
             onPotUpdateCallback(ingredientName);
         }
     });

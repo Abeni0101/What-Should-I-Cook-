@@ -12,7 +12,7 @@ export async function fetchBySettings(ingredients, diet) {
         url += `&diet=${diet}`;
     }
 
-    // Pro-Tip: Cache responses to save API credits during development
+    
     const cacheKey = `search_${ingString}_${diet}`;
     if (sessionStorage.getItem(cacheKey)) {
         return JSON.parse(sessionStorage.getItem(cacheKey));
@@ -23,17 +23,15 @@ export async function fetchBySettings(ingredients, diet) {
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
         
-        // Complex search returns results inside a 'results' array
+        
         sessionStorage.setItem(cacheKey, JSON.stringify(data.results));
         return data.results;
     } catch (error) {
         console.error("API Error:", error);
-        return null; // Signals ui.js to show an error toast
+        return null; 
     }
 }
 
-// ComplexSearch already includes details if addRecipeInformation=true is passed!
-// We only need this if we want highly specific endpoints, but we'll keep it for fallback.
 export async function fetchRecipeDetails(id) {
     const cacheKey = `recipe_${id}`;
     if (sessionStorage.getItem(cacheKey)) {
