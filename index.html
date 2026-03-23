@@ -22,7 +22,10 @@
         <aside class="controls glass-panel">
             <section class="input-group">
                 <h3>1. Add Ingredients</h3>
-                <input type="text" id="ingredient-input" placeholder="Type & press Enter (e.g. Garlic)">
+                <form id="ingredient-form" class="flex-between" style="gap: 10px;">
+                    <input type="text" id="ingredient-input" placeholder="Type & press Enter" autocomplete="off">
+                    <button type="submit" id="add-ing-btn" class="action-btn small" style="padding: 12px 16px; font-size: 1.2rem;">+</button>
+                </form>
                 <div id="active-ingredients" class="tag-container"></div>
             </section>
 

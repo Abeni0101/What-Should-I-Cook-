@@ -19,6 +19,25 @@ input.addEventListener('keydown', (e) => {
         input.value = "";
     }
 });
+// 1. Handle Ingredient Input (Mobile & Desktop Safe)
+const form = document.getElementById('ingredient-form');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Stops the page from refreshing
+    
+    if (input.value.trim() !== "") {
+        addIngredient(input.value.trim().toLowerCase());
+        input.value = "";
+    }
+    
+    // Optional: Keep focus on input for rapid typing on desktop, 
+    // but on mobile, you might want it to drop the keyboard.
+    if (window.innerWidth > 768) {
+        input.focus();
+    } else {
+        input.blur(); // Drops the mobile keyboard so they can see results
+    }
+});
 
 function addIngredient(val) {
     if (!selectedIngredients.includes(val)) {

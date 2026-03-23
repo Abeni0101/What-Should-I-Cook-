@@ -242,4 +242,15 @@ input[type="text"]:focus, select:focus {
 @media (max-width: 900px) {
     .app-container { grid-template-columns: 1fr; }
     .recipe-content-grid { grid-template-columns: 1fr; }
+    
+    /* Ensure the mobile modal fits nicely */
+    .modal-content { padding: 20px; }
+    .close-modal { top: 10px; right: 15px; }
+    
+    /* Make pantry items easier to tap on phones */
+    .draggable-ingredient { 
+        padding: 12px 16px; 
+        font-size: 1rem; 
+        cursor: pointer; /* Changes from 'grab' to standard pointer on mobile */
+    }
 }
