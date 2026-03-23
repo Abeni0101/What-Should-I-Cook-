@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍳 What Should I Cook Right Now</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="toast-container"></div>
+
+    <header>
+        <div class="logo">
+            <h1>What Should I Cook? 🍳</h1>
+            <p>The interactive decision engine for hungry people.</p>
+        </div>
+        <button id="lazy-mode-btn" class="glow-btn">👉 Lazy Mode</button>
+    </header>
+
+    <main class="app-container">
+        <aside class="controls glass-panel">
+            <section class="input-group">
+                <h3>1. Add Ingredients</h3>
+                <input type="text" id="ingredient-input" placeholder="Type & press Enter (e.g. Garlic)">
+                <div id="active-ingredients" class="tag-container"></div>
+            </section>
+
+            <section class="pantry-group">
+                <h3>Quick Pantry (Drag me!)</h3>
+                <div class="pantry-items">
+                    <div class="draggable-ingredient" draggable="true" data-item="chicken">🍗 Chicken</div>
+                    <div class="draggable-ingredient" draggable="true" data-item="tomato">🍅 Tomato</div>
+                    <div class="draggable-ingredient" draggable="true" data-item="onion">🧅 Onion</div>
+                    <div class="draggable-ingredient" draggable="true" data-item="pasta">🍝 Pasta</div>
+                </div>
+            </section>
+
+            <section class="pot-group">
+                <div id="cooking-pot" class="drop-zone">
+                    <span>Drop ingredients here! 🍲</span>
+                </div>
+            </section>
+
+            <section class="filter-group">
+                <h3>2. Refine Search</h3>
+                <select id="diet-filter">
+                    <option value="">Any Diet</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="paleo">Paleo</option>
+                    <option value="ketogenic">Keto</option>
+                </select>
+                <button id="search-btn" class="action-btn w-100 mt-10">Search Recipes</button>
+            </section>
+        </aside>
+
+        <section class="display-area">
+            <div id="recipe-results" class="recipe-board">
+                <div class="empty-state">Add an ingredient and click search to start the magic! ✨</div>
+            </div>
+        </section>
+    </main>
+
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content glass-panel">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
